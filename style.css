@@ -1,0 +1,371 @@
+#calculator *{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+	color: #3b3b3b;
+	font-size: 16px;
+}
+
+#calculator{
+	width: 540px;
+	margin: 0 auto;
+}
+
+#calculator .section{
+	border-radius: 3px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	margin-bottom: 15px;
+}
+
+#calculator .section .enter,
+#calculator .section .assign,
+#calculator .section .content{
+	padding: 0 20px 15px 20px;
+}
+
+#calculator h2{
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	background: url('img/h2-bg.png') repeat-x;
+	height: 35px;
+	line-height: 35px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	margin: 0;
+}
+
+#calculator h3{
+	font-size: 14px;
+	margin: 0;
+	font-weight: bold;
+	margin-left: -30px;
+}
+
+#calculator .assign{
+	background: url('img/assign-bg.png') repeat-x #caced6;
+	display: inline-block;
+	width: 100%;
+	padding-bottom: 0;
+}
+
+#calculator .assign .form-item{
+	float: left;
+	width: 33%;
+	text-align: center;
+	margin-top: 10px;
+}
+
+#calculator .assign img{
+	position: relative;
+	left: -8px;
+	top: 15px;
+}
+
+#calculator .enter{
+	background: url('img/enter-bg.png') repeat-x #cac1ce;
+}
+
+#calculator .enter h3{
+	margin-top: -10px;
+	margin-bottom: 8px;
+}
+
+#calculator .enter img{
+	position: relative;
+	left: -8px;
+	top: 10px;
+}
+
+#calculator .form-items-left,
+#calculator .form-items-right{
+	float: left;
+	width: 50%;
+}
+
+#calculator .enter .form-items-right .form-item{
+	padding-right: 0;
+}
+
+#calculator .form-items-right .rightselect{
+	margin-bottom: 10px;
+}
+
+#calculator .form-items-right span {
+	display: block;
+	margin-bottom: 10px;
+	float: left;
+	width: 65px;
+}
+
+#calculator .bold-td{
+	font-weight: bold;
+}
+
+#calculator .question{
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#calculator .expand{
+	display: none;
+}
+
+#calculator .assign label{
+	font-weight: bold;
+}
+
+#calculator .assign select{
+	width: 140px;
+	clear: both;
+	text-align: center;
+	margin-top: 4px;
+}
+
+#calculator .enter .form-items-right input[type="text"]{
+	float: left;
+	margin-right: 7px;
+	margin-bottom: 10px;
+	clear: left;
+}
+
+#calculator .form-items-right .form-item{
+	line-height: 18px;
+}
+
+#calculator .form-items-right{
+	border-left: 1px solid #bababa;
+	padding-left: 17px;
+	min-height: 272px;
+}
+
+#calculator .form-items-right label{
+	display: block;
+	width: 100%;
+	clear: both;
+	margin-bottom: 10px;
+}
+
+#calculator .enter input[type="text"]{
+	width: 60px;
+	height: 22px;
+	float: right;
+}
+
+#calculator .enter .form-item{
+	clear: both;
+	line-height: 22px;
+	margin-bottom: 10px;
+	padding-right: 15px;
+}
+
+#calculator input[type="submit"] {
+	background: url('img/button.png');
+	height: 28px;
+	color: white;
+	border: none;
+	text-align: center;
+	font-size: 16px;
+	border-radius: 3px;
+	padding: 0 50px;
+	margin-left: 115px;
+	margin-top: 10px;
+}
+
+#calculator .complete,
+#calculator .results{
+	background: url('img/result-bg.jpg') repeat-x #efefef;
+}
+
+#calculator .complete h2,
+#calculator .results h2{
+	background: url('img/h2-result-bg.png') repeat-x;
+}
+
+#calculator .complete h2{
+	font-size: 16px;
+}
+
+#calculator table{
+	margin-top: 15px;
+	width: 100%;
+}
+
+#calculator table td{
+	width: 25%;
+	padding-bottom: 10px;
+}
+
+#calculator .next{
+	background: url('img/next-bg.jpg') repeat-x #efefef;
+	padding-top: 10px;
+}
+
+#calculator .complete p,
+#calculator .next p{
+	line-height: 18px;
+}
+
+#calculator a.next{
+	background: url('img/button.png');
+	height: 28px;
+	color: white;
+	border: none;
+	text-align: center;
+	font-size: 16px;
+	border-radius: 3px;
+	padding: 0 20px;
+	line-height: 28px;
+	width: 85px;
+	margin: 10px auto 0;
+	text-decoration: none;
+	display: block;
+}
+
+#calculator .next.back{
+	padding-top: 0;
+}
+
+#calculator .next.back p{
+	clear: both;
+}
+
+#calculator a.next.back{
+	float: left;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#calculator .complete .form-item label{
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin: 13px 0;
+}
+
+#calculator .complete .form-item input{
+	width: 190px;
+	margin-left: 105px;
+}
+
+#calculator .prof{
+	background: url('img/prof.png');
+	height: 43px;
+}
+
+#calculator .prof select{
+	position: relative;
+	top: 10px;
+	left: 102px;
+}
+
+#calculator .zip {
+	background: url('img/zip.png') repeat-x #efcca5;
+	padding-bottom: 0;
+}
+
+#calculator .zip .form-item label{
+	margin-top: 0;
+	padding-top: 13px;
+	float: left;
+	width: auto;
+}
+
+#calculator .zip .form-item {
+	width: 250px;
+	margin-left: 75px;
+}
+
+#calculator .zip .form-item input{
+	float: right;
+	margin-left: 0;
+	margin-top: 10px;
+	width: 80px;
+}
+
+#calculator .zip p{
+	clear: both;
+}
+
+#calculator textarea{
+	width: 100%;
+	height: 80px;
+	margin-top: 15px;
+}
+
+#calculator .tooltip{
+	display: inline-block;
+	margin-left: 5px;
+	width: 12px;
+	height: 12px;
+	background: url('img/i.png') center center no-repeat;
+}
+
+#calculator .archive-print .row.second .button{
+	opacity: .5;
+}
+
+#calculator .archive-print .content{
+	padding-top: 20px;
+}
+
+#calculator .archive-print .row{
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+
+#calculator .archive-print p{
+	margin: 0;
+	width: 275px;
+	float: right;
+}
+
+#calculator .archive-print .button{
+	background: url('img/button.png');
+	height: 28px;
+	color: white;
+	display: block;
+	line-height: 28px;
+	text-decoration: none;
+	border: none;
+	text-align: center;
+	font-size: 16px;
+	border-radius: 3px;
+	padding: 0 10px;
+	width: 100px;
+	float: left;
+	margin-left: 0;
+	margin-right: 20px;
+}
+
+#calculator label[for="stipend"]{
+	display: block;
+}
+
+#calculator input#stipend{
+	float: none;
+	width: 95px;
+}
+
+#calculator select{
+	height: 22px;
+}
+
+#calculator .other-value{
+	width: 110px;
+}
+
+#calculator #insurance{
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#assignment-length-other {
+ display:none;
+}
+
+.clearfix{
+	clear: both;
+}

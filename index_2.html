@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="tooltipster.css">
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
+<form action="" id="calculator">
+	<div class="section next back">
+		<h2>Save My Calculation</h2>
+		<div class="content">
+		<a href="" class="next back" id="back">Back</a>
+		<p>You can save this page for review at any later time. Then you can compare it to other agency offers and more effectively negotiate your compensation package. Please save this information only when you are reasonably certain that this agency has provided you with complete and accurate numbers. Accurate numbers allow members the ability to compare their offers to average offers in the same location. To save this page, click “Next.”</p>
+		
+	</div></div>
+	<div class="section complete">
+		<h2>Complete these few steps to save this entire calculation</h2>
+		<div class="content">
+			<div class="form-item">
+				<label for="title">Title</label>
+				<input type="text" name="title" id="title">
+				<p>Enter a meaningful title for your calculation so you can identify it later when comparing your offers. For instance “San Diego General / Acme Travel Agency”. This information is for your confidential use only and will not be used for any other purpose.</p>
+			</div>
+		</div>
+		<div class="content prof">
+			<div class="form-item">
+				<select name="profession" id="profession">
+					<option value="">Please select your profession</option>
+				</select>
+			</div>
+		</div>
+		<div class="content zip">
+			<div class="form-item">
+				<label for="zip">ZIP code of assignment offer</label> <input id="zip" type="text">
+				
+			</div>
+			<p>PLEASE NOTE!This one piece of information is very important to help us organize the data we are compiling to benefit all travelers. Please take a moment to look up the Zip Code of your proposed assignment. The Zip Code need not be exact as long as you enter any Zip Code for the city where the assignment is located. Here’s a link to an easy Zip Code lookup form.</p>
+		</div>
+		<div class="content">
+			<textarea name="notes" id="notes" placeholder="Notes: (Example) “Nice recruiter, crappy housing, night shift only”"></textarea>
+			<a href="" id="save" class="next save">Save</a>
+		</div>
+	</div></div>
+
+</form>
+<script>
+    $(document).ready(function() {
+        $('.tooltip').tooltipster();
+    });
+</script>

@@ -1,0 +1,163 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="tooltipster.css">
+<link rel="stylesheet" href="style.css">
+
+<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="jquery.tooltipster.min.js"></script>
+
+<script type="text/javascript" src="calculator.js"></script>
+</head>
+<body>
+
+<form action="" id="calculator">
+  
+  <div class="section">
+    <h2>PanTravelers Calculator</h2>
+    <div class="assign">
+      <h3><img src="img/1.png"></h3>
+
+      <div class="form-item">
+        <label for="assignment-length">Assignment</label>
+        <select name="assignment-length" id="assignment-length">
+          <option value="8">8 weeks</option>
+          <option value="13" selected="selected">13 weeks</option>
+          <option value="other">other # wks</option>
+        </select>
+        <input type="text" id="assignment-length-other" class="other-value"/>
+      </div>
+      <div class="form-item">
+        <label for="weekly-hours">Weekly Hours</label>
+        <select name="weekly-hours" id="weekly-hours">
+          <option value="3x12" selected="selected">36 - 3 x 12</option>
+          <option value="5x8">40 - 5 x 8</option>
+          <option value="4x10">40 - 4 x 10</option>
+          <option value="4x12">48 - 4 x 12</option>
+          <option value="3x11.5">34.5 - 3 x 11.5</option>
+        </select>
+
+      </div>
+      <div class="form-item">
+        <label for="pay-status">Overtime Status<a class="tooltip" title='Some assignments in California pay time and a half after 8 on a 10 or 12 hour shift. If a "blended" rate is quoted, choose Regular pay.'></a></label>
+        <select name="pay-status" id="pay-status">
+          <option value="regular">after 40 hr/wk</option>
+          <option value="ot8">after 8hrs/day</option>
+        </select>
+      </div>
+    </div>
+    <div class="enter">
+      <h3><img src="img/2.png"></h3>
+      <div class="form-items-left">
+        <div class="form-item">
+          <label for="hourly">Hourly Pay</label><input id="hourly" type="text" />
+        </div>
+        <div class="form-item">
+          <label for="completion">Completion Bonus</label><input id="completion" type="text" />
+        </div>
+        <div class="form-item">
+          <label for="stipend">Housing benefit<a class="tooltip" title='Enter amount for entire assignment.'></a></label>
+          <select name="housing-period" id="housing-period">
+            <option value="monthly">Monthly</option>
+            <option value="weekly">Weekly</option>
+          </select>
+          <input id="stipend" type="text" />
+        </div>
+        <div class="form-item">
+          <label for="insurance">Health Insurance per month<a class="tooltip" title=' this is the monthly value of your insurance (ask your recruiter for the COBRA value). If there is a copay, you can either deduct from the COBRA value here, or use "Any other pay or deductions" section.'></a></label><input id="insurance" type="text" />
+        </div>
+        <div class="form-item">
+          <label for="travel-pay">Travel Pay<a class="tooltip" title='Enter round trip pay'></a></label><input id="travel-pay" type="text" />
+        </div>
+        <div class="form-item">
+          <strong>Contract length</strong> <br>
+          <span id="total_hours">468</span> hours <br>
+        </div>
+      </div>
+      <div class="form-items-right">
+        <div class="form-item">
+          <label for="per-diem-period">Per diem (if applicable)<a class="tooltip" title='Some agencies offer tax advantage. If so, enter untaxed per diem here and choose hourly, weekly, or monthly.'></a></label>
+          <select name="per-diem-period" id="per-diem-period">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+          </select>
+          <input name="per-diem" id="per-diem" type="text" />
+        </div>
+        <div class="form-item question">
+          More pay or deductions?
+        </div>
+        <div class="expand">
+          <div class="form-item">
+            <label for="">All other payments<a class="tooltip" title='Enter any other payments or reimbursements. (example: 3 months car rental, license reimbursement) Ask your agency for tax status.'></a></label>
+            <input type="text" id="op-taxed" /> <span>Taxed</span>
+
+            <input type="text" id="op-taxfree" /> <span>Tax free</span>
+
+          </div>
+          <div class="form-item">
+            <label for="">All other deductions<a class="tooltip" title='Enter any other deductions from your pay.(example: private housing upgrade, washer/dryer, pet charge) Ask your agency for tax status.'></a></label>
+            <input type="text" id="od-taxed" /> <span>Taxed</span>
+
+            <input type="text" id="od-taxfree" /> <span>Tax free</span>
+          </div>
+        </div>
+      </div>
+    <div class="clearfix"></div>
+  </div></div>
+  <div class="section results">
+    <h2>Results</h2>
+    <div class="content">
+    <table>
+      <tr>
+        <td></td>
+        <td>Gross Pay<a class="tooltip" title='Need content from DW for this'></a></td>
+        <td>Taxes (est.)</td>
+        <td>Net Pay</td>
+      </tr>
+      <tr>
+        <td class="bold-td">Per Hour</td>
+        <td><span id="pay_hour"></span></td>
+        <td><span id="tax_hour"></span></td>
+        <td><span id="net_hour"></span></td>
+      </tr>
+      <tr>
+        <td class="bold-td">Per Week</td>
+        <td><span id="pay_week"></span></td>
+        <td><span id="tax_week"></span></td>
+        <td><span id="net_week"></span></td>
+      </tr>
+      <tr>
+        <td class="bold-td">Per Contract</td>
+        <td><span id="pay_contract"></span></td>
+        <td><span id="tax_contract"></span></td>
+        <td><span id="net_contract"></span></td>
+      </tr>
+      <tr>
+        <td class="bold-td">Per Year</td>
+        <td><span id="pay_year"></span></td>
+        <td><span id="tax_year"></span></td>
+        <td><span id="net_year"></span></td>
+      </tr>
+    </table>
+  </div></div>
+  <div class="section archive-print results">
+    <div class="content">
+      <div class="row first">
+        <a href="#" class="button">Print/Save</a>
+        <p>Basic members can print individual results or save themas a PDF to their computer.</p>
+      </div>
+      <div class="row second">
+        <a href="#" class="button">Archive</a>
+        <p>Contributing member can also archive their results right here in their member database. Archived results can be recalled at any time. <a href="#">Recall from Archive</a> (opens a new window)</p>
+      </div>
+  </div></div>
+  <!--
+  <div class="section next">
+    <div class="content">
+    <p>You can save this page for review at any later time. Then you can compare it to other agency offers and more effectively negotiate your compensation package. Please save this information only when you are reasonably certain that this agency has provided you with complete and accurate numbers. Accurate numbers allow members the ability to compare their offers to average offers in the same location. To save this page, click “Next.”</p>
+    <a href="" id="next" class="next">Next</a>
+  </div></div>
+-->
+</form>
+</body>
+</html>
