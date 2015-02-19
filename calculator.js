@@ -71,67 +71,64 @@ $(document).ready(function() {
       per_diem = parseInt(per_diem,10) || 0;
       
       per_diem_period = $('#per-diem-period').val();
-      
-      /* note: this needs to be made more nuanced */
-      /* xxx there is a calculation error here, rework */
-      if (per_diem_period=='weekly') {
-         hourly_per_diem = per_diem/8
-         }
-      else {
-         hourly_per_diem = per_diem/40
-         }
-      
+
       hourly = parseInt(hourly,10) || 0;
-      hourly_per_diem = parseInt(hourly_per_diem,10) || 0;
-      
       
       months = length/4.3;
-      
-      
-      
-      one_time = (completion+stipend+insurance+travel_pay+op_taxed+op_taxfree)-(od_taxed+od_taxfree+travel)
-      
-      
       hours = length*weekly_hours;
       
-      hourly_one_time = one_time/hours
+      hourly_one_times =  (completion+op_taxed-od_taxed)/hours
       
-      total_hourly =  (hourly+hourly_one_time+hourly_per_diem).toFixed(2);
+      total_hourly_taxable =  (hourly+hourly_one_times);
       
-      total_hourly = 1.1*total_hourly
+      t = total_hourly_taxable
+      
+      total_hourly_employer = (total_hourly_taxable*1.1).toFixed(2);
+      
+      e = parseFloat(total_hourly_employer)
+
+      if (per_diem_period=='weekly') {
+          hourly_per_diem = per_diem/weekly_hours
+      }
+      else {
+          hourly_per_diem = (per_diem*7)/weekly_hours
+      }
+      
+      hourly_insurance = (insurance/4.3)/weekly_hours
+
+      total_hourly_nontaxable =  (hourly_per_diem+hourly_insurance+((travel_pay+op_taxfree-od_taxfree)/hours)).toFixed(2);
+      
+      u = parseFloat(total_hourly_nontaxable)
+      
+      total_hourly = parseFloat(e)+parseFloat(u);
+      tax_hourly =  (t/3);
+      net_hourly = (t+u)-(t/3);
       
       total_contract = (hours*total_hourly).toFixed(2);
+      tax_contract = (hours*tax_hourly).toFixed(2);
+      net_contract = (hours*net_hourly).toFixed(2);
+      
       total_weekly = (total_hourly*weekly_hours).toFixed(2);
+      tax_weekly = (tax_hourly*weekly_hours).toFixed(2);
+      net_weekly = (net_hourly*weekly_hours).toFixed(2);
       
       total_yearly = (total_weekly*50).toFixed(2);
-      
-      composite_hourly = hourly+hourly_per_diem;
+      tax_yearly = (tax_weekly*50).toFixed(2);
+      net_yearly = (net_weekly*50).toFixed(2);
       
       $('#total_hours').html(hours);
       
-      $('#pay_hour').html(total_hourly);
+      $('#pay_hour').html(parseFloat(total_hourly).toFixed(2));
       $('#pay_week').html(total_weekly);
       $('#pay_contract').html(total_contract);
       $('#pay_year').html(total_yearly);
-      
-      taxfree_per_hour = (op_taxfree-od_taxfree)/hours
-      
-      tax_hourly =  ((total_hourly-taxfree_per_hour)*.333).toFixed(2);
-      tax_weekly = (tax_hourly*weekly_hours).toFixed(2);
-      tax_contract = (hours*tax_hourly).toFixed(2);
-      tax_yearly = (tax_weekly*50).toFixed(2);
-      
-      $('#tax_hour').html(tax_hourly);
+
+      $('#tax_hour').html(parseFloat(tax_hourly.toFixed(2)));
       $('#tax_week').html(tax_weekly);
       $('#tax_contract').html(tax_contract);
       $('#tax_year').html(tax_yearly);
       
-      net_hourly = (total_hourly - tax_hourly).toFixed(2);
-      net_weekly = (total_weekly - tax_weekly).toFixed(2);
-      net_contract = (total_contract - tax_contract).toFixed(2);
-      net_yearly = (total_yearly - tax_yearly).toFixed(2);
-
-      $('#net_hour').html(net_hourly);
+      $('#net_hour').html(parseFloat(net_hourly.toFixed(2)));
       $('#net_week').html(net_weekly);
       $('#net_contract').html(net_contract);
       $('#net_year').html(net_yearly);
